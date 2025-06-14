@@ -138,4 +138,134 @@ Would you like a GUI version (Tkinter) or class diagram for this?
 
 
 
+Here is the Java version of your BankAccount Python program with correct use of:
 
+✅ Encapsulation
+
+✅ Private fields
+
+✅ Public getters and setters
+
+✅ Method validations
+
+✅ Access Modifiers (private, public)
+
+✅ Java Code: BankAccount.java
+java
+Copy
+Edit
+// File: BankAccount.java
+
+public class BankAccount {
+    // 🔒 Private attributes
+    private String accountHolder;
+    private double balance;
+
+    // ✅ Constructor
+    public BankAccount(String accountHolder, double balance) {
+        this.accountHolder = accountHolder;
+        this.balance = balance;
+    }
+
+    // ✅ Public method: deposit
+    public void deposit(double amount) {
+        if (amount > 0) {
+            balance += amount;
+            System.out.println("₹" + amount + " deposited. New balance: ₹" + balance);
+        } else {
+            System.out.println("Invalid deposit amount.");
+        }
+    }
+
+    // ✅ Public method: withdraw
+    public void withdraw(double amount) {
+        if (amount > 0 && amount <= balance) {
+            balance -= amount;
+            System.out.println("₹" + amount + " withdrawn. New balance: ₹" + balance);
+        } else {
+            System.out.println("Insufficient funds or invalid amount.");
+        }
+    }
+
+    // ✅ Public method: display account info
+    public void displayInfo() {
+        System.out.println("Account Holder: " + accountHolder);
+        System.out.println("Balance: ₹" + balance);
+    }
+
+    // ✅ Getter for balance
+    public double getBalance() {
+        return balance;
+    }
+
+    // ✅ Setter for balance
+    public void setBalance(double newBalance) {
+        if (newBalance >= 0) {
+            balance = newBalance;
+        } else {
+            System.out.println("Balance cannot be negative!");
+        }
+    }
+
+    // ✅ Getter for account holder
+    public String getAccountHolder() {
+        return accountHolder;
+    }
+
+    // ✅ Setter for account holder
+    public void setAccountHolder(String name) {
+        if (name != null && !name.trim().isEmpty()) {
+            accountHolder = name;
+        } else {
+            System.out.println("Invalid name!");
+        }
+    }
+}
+✅ Java Code: Main.java
+java
+Copy
+Edit
+// File: Main.java
+
+public class Main {
+    public static void main(String[] args) {
+        // Create account
+        BankAccount account = new BankAccount("Arun", 1000);
+
+        // Display info
+        account.displayInfo();
+
+        // Deposit
+        account.deposit(500);
+
+        // Withdraw
+        account.withdraw(300);
+
+        // Getter usage
+        System.out.println("Balance via getter: ₹" + account.getBalance());
+
+        // Setter usage
+        account.setBalance(2000);
+        System.out.println("Updated balance: ₹" + account.getBalance());
+
+        // Try setting negative balance
+        account.setBalance(-1000);
+
+        // Set and get account holder
+        account.setAccountHolder("Meena");
+        System.out.println("Updated holder name: " + account.getAccountHolder());
+    }
+}
+🔐 Summary of Access Modifiers:
+Element	Access Modifier	Reason
+accountHolder, balance	private	To encapsulate sensitive data
+get/set methods	public	To safely access or modify private attributes
+All logic methods (deposit, etc.)	public	To allow usage from other classes (Main)
+
+Let me know if you want:
+
+A UML diagram 📊
+
+GUI version with JavaFX or Swing 🎨
+
+File I/O or database version 📂📊
